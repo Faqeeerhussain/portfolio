@@ -5,9 +5,11 @@ export default class ScrollService{
     static scrollHandler = new ScrollService();
     static currentScreenBroadCaster = new Subject();
     static currentScreenFadIn = new Subject();
+   
 
     constructor(){
         window.addEventListener('scroll', this.checkCurrentScreenUnderViewport);
+        
     }
     scrollToHireMe = ()=>{
         let contactMeScreen = document.getElementById('ContactMe')
@@ -21,13 +23,16 @@ export default class ScrollService{
     }
 
     isElementInView = (elem, type)=>{
+        
         let rec = elem.getBoundingClientRect();
         let elementTop = rec.top;
+        console.log(elementTop);
         let elementBottom = rec.Bottom;
-
+        
+        
         let partiallyVisible = elementTop < window.innerHeight && elementBottom >= 0;
         let completelyVisible = elementTop >= 0 && elementBottom <= window.innerHeight;
-
+        
         switch(type){
             case 'partical':
                 return partiallyVisible;
@@ -42,11 +47,13 @@ export default class ScrollService{
         return;
         for(let screen of TOTAL_SCREENS){
             let screenFromDOM = document.getElementById(screen.screen_name);
+            
             if(!screenFromDOM)
             continue;
 
             let fullyVisible = this.isElementInView(screenFromDOM, 'complete');
             let partiallyVisible = this.isElementInView(screenFromDOM, 'partial');
+            
 
             if(fullyVisible || partiallyVisible){
                 if(partiallyVisible && !screen.alreadyRendered){
