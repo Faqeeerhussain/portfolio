@@ -92,7 +92,7 @@ export default function ContactMe(props) {
             <img src={imgBack} alt="image not found" />
           </div>
           <form onSubmit={submitForm}>
-            <p>{banner}</p>
+            
             <label htmlFor="name">Name</label>
             <input type="text" onChange={handleName} value={name} />
 

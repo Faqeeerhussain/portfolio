@@ -15,7 +15,7 @@ const Profile = (props) => {
     ScrollService.currentScreenFadIn.subscribe(fadeInScreenHading);
 
   return (
-    <div className="profile-container" id='Home'>
+    <div className="profile-container" >
       <div className="profile-parent">
         <div className="profile-details">
           <div className="colz">

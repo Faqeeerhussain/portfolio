@@ -7,7 +7,7 @@ import ScrollService from "../../../utilities/ScrollService";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.css";
-
+import logo from '../../../assets/Home/headerLogo.png'
 const Header = () => {
   const [selectedScreen, setSelectedScreen] = useState(0);
   const [showHeaderOptions, setShowHeaderOptions] = useState(false);
@@ -53,7 +53,7 @@ const Header = () => {
   return (
     <div>
       <div
-        className="header-container"
+        className="header-container" id='Home'
         onClick={() => setShowHeaderOptions(!showHeaderOptions)}
       >
         <div className="header-parent">
@@ -64,7 +64,8 @@ const Header = () => {
             <FontAwesomeIcon className="header-hamburger-bars" icon={faBars} />
           </div>
           <div className="header-logo">
-            <span>Ehizeex</span>
+            {/* <span>Ehizeex</span */}
+            <img src={logo} />
           </div>
           <div
             className={
